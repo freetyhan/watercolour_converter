@@ -20,11 +20,13 @@ body{
   color: white;
   font-size: 40px;
   text-align: center;
-  position: absolute;
-  top: 100px;
-  right: center;
-  width: 650px;
-  height: 50px;
+  height: 70px;
+  width: 700px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .drag-area{
   border: 2px dashed #fff;
@@ -71,4 +73,27 @@ body{
   object-fit: cover;
   border-radius: 5px;
 }
-/* TODO : add convert button*/
+.convert-area{
+  height: 100px;
+  width: 700px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.convert-area button{
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: #274b74;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.flex-container{
+  display: flex;
+  flex-direction: column;
+}
