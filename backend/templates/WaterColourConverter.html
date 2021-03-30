@@ -111,15 +111,11 @@
 <body>
     <div class="title">
         <header><span>Watercolour Painting Converter</span></header>
-
     </div>
-    {{ dropzone.  create(action='upload') }}
-    <div class="dropzone">
+    
+    <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-        <header>Drag & Drop to Upload File</header>
-        <span>OR</span>
-        
-        <button>Browse File</button>
+        <header>Drag or Click to Upload File</header>
         <input type="file" hidden>
     </div>
 

@@ -15,6 +15,7 @@ app.config.update(
 
 dropzone = Dropzone(app)
 
+
 @app.route('/',methods=['POST','GET'])
 def upload():
     if request.method == 'POST':
