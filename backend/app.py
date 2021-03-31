@@ -10,7 +10,8 @@ app.config.update(
     DROPZONE_ALLOWED_FILE_CUSTOM = True,
     DROPZONE_ALLOWED_FILE_TYPE = 'image/*, video/*',
     DROPZONE_DEFAULT_MESSAGE = "",
-    DROPZONE_INVALID_FILE_TYPE = "Please upload a photo or video",
+    DROPZONE_INVALID_FILE_TYPE = "Please upload a photo",
+    DROPZONE_MAX_FILES = 1,
     DROPZONE_TIMEOUT = 5*60*1000)
 
 dropzone = Dropzone(app)
