@@ -107,6 +107,8 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+
 </head>
 <body>
     <div class="title">
@@ -120,12 +122,19 @@
     </div>
 
     <div class="convert-area">
-        <button>Convert</button>
+        <button id=convert>Convert</button>
     </div>
 
   <!-- backend script can be added below! -->
   <!-- <script src="script.js"></script> -->
   {{ dropzone.load_js() }}
   {{ dropzone.config() }}
+
+  <script type="text/javascript">
+        document.getElementById("convert").onclick = function() {
+            location.href = "/results/"
+        }
+  </script>
+  
 </body>
 </html>

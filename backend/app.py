@@ -22,10 +22,12 @@ def upload():
         f = request.files.get('file')
         f.save(os.path.join(app.config['UPLOADED_PATH'],f.filename))
     return render_template('WaterColourConverter.html')
-
-# @app.route('/results/')
-# def result():
-#     return "result"
+def result():
+    return render_template("index.html")
+        
+@app.route('/results/')
+def resultPage():
+     return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
