@@ -12,6 +12,7 @@ app.config.update(
     DROPZONE_DEFAULT_MESSAGE = "",
     DROPZONE_INVALID_FILE_TYPE = "Please upload a photo or video",
     DROPZONE_MAX_FILES = 1,
+    DROPZONE_MAX_FILE_EXCEED = "",
     DROPZONE_TIMEOUT = 5*60*1000)
 
 dropzone = Dropzone(app)
@@ -23,8 +24,6 @@ def upload():
         f = request.files.get('file')
         f.save(os.path.join(app.config['UPLOADED_PATH'],f.filename))
     return render_template('WaterColourConverter.html')
-def result():
-    return render_template("index.html")
         
 @app.route('/results/')
 def resultPage():

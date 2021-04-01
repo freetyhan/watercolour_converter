@@ -129,48 +129,23 @@
   {{ dropzone.load_js() }}
   {{ dropzone.config(custom_init='
                     dz = this; 
+                   
                     document.getElementById("convert").addEventListener("click", function handler(e) {
                         var accepted = dz.getAcceptedFiles();
-                        console.log(accepted);
+
                         if (accepted.length > 0) {
                             location.href= "/results/";
                         } else {
                             alert("Upload a photo or video");
                         }
-                    });',
+                    });
+
+                    dz.on("maxfilesexceeded", function handler(file){
+                        var oldFiles = dz.getAcceptedFiles();
+                        dz.removeFile(oldFiles[0]);
+                    })',
                     custom_options='clickable: true, addRemoveLinks: true,') }}
 
-    <script>
-        /**
-         * Function to be called when the convert button is clicked
-         * 
-         * If an image has been uploaded - the picture will be sent
-         * to the model and user will be redirected to the result page
-         * 
-         * Otherwise user will be alerted to upload a photo
-         */
-        function convert() {
-            var uploadedFiles = dropzone.getAcceptedFiles();
-            console.log(uploadedFiles.length());
-            if (uploadedFiles.length() > 0 ) {
-                location.href = "/results/";
-            } else {
-                alert("Please upload a photo/video");
-            }
-        }
-
-        /**
-         * Function to be called when maxFileExceeded event happens
-         * 
-         * This function will delete the previously uploaded file on 
-         * the website and replace it with the newly added file 
-         */
-        function replaceOld(file) {
-
-        }
-
-    </script>
-  
 
 </body>
 </html>
