@@ -115,7 +115,6 @@
         <header><span>Watercolour Painting Converter</span></header>
     </div>
     
-
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
         <header>Drag or Click to Upload File</header>
@@ -123,13 +122,23 @@
     </div>
 
     <div class="convert-area">
-        <button onclick="convert()">Convert</button>
+        <button id="convert">Convert</button>
     </div>
 
   <!-- backend script can be added below! -->
-  <!-- <script src="script.js"></script> -->
   {{ dropzone.load_js() }}
-  {{ dropzone.config(custom_options='clickable: true, addRemoveLinks: true') }}
+  {{ dropzone.config(custom_init='
+                    dz = this; 
+                    document.getElementById("convert").addEventListener("click", function handler(e) {
+                        var accepted = dz.getAcceptedFiles();
+                        console.log(accepted);
+                        if (accepted.length > 0) {
+                            location.href= "/results/";
+                        } else {
+                            alert("Upload a photo or video");
+                        }
+                    });',
+                    custom_options='clickable: true, addRemoveLinks: true,') }}
 
     <script>
         /**
@@ -141,7 +150,13 @@
          * Otherwise user will be alerted to upload a photo
          */
         function convert() {
-
+            var uploadedFiles = dropzone.getAcceptedFiles();
+            console.log(uploadedFiles.length());
+            if (uploadedFiles.length() > 0 ) {
+                location.href = "/results/";
+            } else {
+                alert("Please upload a photo/video");
+            }
         }
 
         /**
@@ -153,8 +168,6 @@
         function replaceOld(file) {
 
         }
-
-        
 
     </script>
   
