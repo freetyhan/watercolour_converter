@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> // style file removed, if necessary, might need to separate again later --> 
+    <link rel="stylesheet" href="style.css"> 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
         *{
@@ -78,8 +78,8 @@
         cursor: pointer;
         }
         .dropzone img{
-        height: 0%;
-        width: 0%;
+        height: 100%;
+        width: 100%;
         object-fit: cover;
         border-radius: 5px;
         }
@@ -118,9 +118,9 @@
 
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-        <header>Drag and Drop to Upload File</header>
-        <span>OR</span>
-        <button onclick="openDialogue()">Browse File</button>
+        <header>Drag or Click to Upload File</header>
+        <!--<span>OR</span>
+        <button onclick="openDialogue()">Browse File</button>-->
         <input id= "img" type="file" hidden>
     </div>
 
@@ -131,12 +131,14 @@
   <!-- backend script can be added below! -->
   <!-- <script src="script.js"></script> -->
   {{ dropzone.load_js() }}
-  {{ dropzone.config(custom_options='clickable: false') }}
+  {{ dropzone.config(custom_options='clickable: true, addRemoveLinks: true') }}
 
     <script>
+        file.previewELement
         function openDialogue() {
             document.getElementById('img').click();
         }
+        const fileElement = document.getElementById("img");
     </script>
   
 
