@@ -119,13 +119,11 @@
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
         <header>Drag or Click to Upload File</header>
-        <!--<span>OR</span>
-        <button onclick="openDialogue()">Browse File</button>-->
         <input id= "img" type="file" hidden>
     </div>
 
     <div class="convert-area">
-        <button onclick="location.href ='/results/'">Convert</button>
+        <button onclick="convert()">Convert</button>
     </div>
 
   <!-- backend script can be added below! -->
@@ -134,11 +132,30 @@
   {{ dropzone.config(custom_options='clickable: true, addRemoveLinks: true') }}
 
     <script>
-        file.previewELement
-        function openDialogue() {
-            document.getElementById('img').click();
+        /**
+         * Function to be called when the convert button is clicked
+         * 
+         * If an image has been uploaded - the picture will be sent
+         * to the model and user will be redirected to the result page
+         * 
+         * Otherwise user will be alerted to upload a photo
+         */
+        function convert() {
+
         }
-        const fileElement = document.getElementById("img");
+
+        /**
+         * Function to be called when maxFileExceeded event happens
+         * 
+         * This function will delete the previously uploaded file on 
+         * the website and replace it with the newly added file 
+         */
+        function replaceOld(file) {
+
+        }
+
+        
+
     </script>
   
 
