@@ -129,7 +129,7 @@
   {{ dropzone.load_js() }}
   {{ dropzone.config(custom_init='
                     dz = this; 
-                   
+                    
                     document.getElementById("convert").addEventListener("click", function handler(e) {
                         var accepted = dz.getAcceptedFiles();
 
@@ -145,7 +145,6 @@
                         dz.removeFile(oldFiles[0]);
                     })',
                     custom_options='clickable: true, addRemoveLinks: true,') }}
-
 
 </body>
 </html>
