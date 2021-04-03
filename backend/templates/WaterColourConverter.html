@@ -78,8 +78,6 @@
         cursor: pointer;
         }
         .dropzone img{
-        height: 100%;
-        width: 100%;
         object-fit: cover;
         border-radius: 5px;
         }
@@ -133,7 +131,6 @@
         <header><span>Watercolour Painting Converter</span></header>
     </div>
     
-
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div id="instrIcon" class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
         <header id="instrText">Drag or Click to Upload File</header>
@@ -143,7 +140,7 @@
     </div>
 
     <div class="convert-area">
-        <button onclick="location.href ='/results/'">Convert</button>
+        <button id="convert">Convert</button>
     </div>
 
     <div class="description-area">
@@ -152,16 +149,57 @@
     </div>
 
   <!-- backend script can be added below! -->
-  <!-- <script src="script.js"></script> -->
   {{ dropzone.load_js() }}
-  {{ dropzone.config(custom_options='clickable: true, addRemoveLinks: true') }}
+  {{ dropzone.config(custom_init='
+                    dz = this; 
+                    
+                    <!-- Convert button only redirects when an image has been uploaded -->
+                    <!-- Otherwise, prompts the user to upload a photo -->
+                    document.getElementById("convert").addEventListener("click", function handler(e) {
+                        var accepted = dz.getAcceptedFiles();
+                        if (accepted.length > 0) {
+                            location.href= "/results/";
+                        } else {
+                            alert("Upload a photo or video");
+                        }
+                    });  
 
-    <script>
-        file.previewELement
-        function openDialogue() {
-            document.getElementById('img').click();
-        }
-        const fileElement = document.getElementById("img");
+                    <!-- If an image is uploaded when another one has already previously -->
+                    <!-- been uploaded, the new photo replaces the old one -->
+                    dz.on("maxfilesexceeded", function handler(file) {
+                        var oldFiles = dz.getAcceptedFiles();
+                        dz.removeFile(oldFiles[0]);
+                    });
+
+                    <!-- If an invalid file type has been given - prompt user to upload -->
+                    <!-- a picture -->
+                    dz.on("error", function(file) {
+                        if (!file.accepted) this.removeFile(file);
+                        alert("Upload a photo or video");
+                    });
+
+                    <!-- Hide clouds and text if an image has been added -->
+                    dz.on("maxfilesreached", function(file) {
+                        <!--insert code to remove html-->
+                    });
+
+                    <!-- Unhide clouds and text if an image has been removed -->
+                    dz.on("removedfile", function(file){
+                        var accepted = dz.getAcceptedFiles();
+
+                        if (accepted.length == 0) {
+                            <!--insert code to unhide html-->
+                        } 
+                    });',
+                    custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400') }}
+
+        <script>
+        //------This was from backup. Please delete it if you don't need this function!
+        // file.previewELement
+        // function openDialogue() {
+        //     document.getElementById('img').click();
+        // }
+        // const fileElement = document.getElementById("img");
 
         //function to make elements inside dropzone invisible
         function emptyDropzone() {
@@ -170,8 +208,6 @@
             var removeText = document.getElementById("instrText");
             removeText.style.display = "none";
         }
-    </script>
-  
-
+        </script>
 </body>
 </html>
