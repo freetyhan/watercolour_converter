@@ -78,8 +78,6 @@
         cursor: pointer;
         }
         .dropzone img{
-        height: 100%;
-        width: 100%;
         object-fit: cover;
         border-radius: 5px;
         }
@@ -130,6 +128,8 @@
   {{ dropzone.config(custom_init='
                     dz = this; 
                     
+                    <!--Convert button only redirects when an image has been uploaded-->
+                    <!--Otherwise, prompts the user to upload a photo-->
                     document.getElementById("convert").addEventListener("click", function handler(e) {
                         var accepted = dz.getAcceptedFiles();
 
@@ -140,11 +140,15 @@
                         }
                     });
 
+                    <!--If an image is uploaded when another one has already previously-->
+                    <!--been uploaded, the new photo replaces the old one-->
                     dz.on("maxfilesexceeded", function handler(file) {
                         var oldFiles = dz.getAcceptedFiles();
                         dz.removeFile(oldFiles[0]);
                     });
 
+                    <!--If an invalid file type has been given - prompt user to upload-->
+                    <!--a picture-->
                     dz.on("error", function(file) {
                         if (!file.accepted) this.removeFile(file);
                         alert("Upload a photo or video");
@@ -161,7 +165,7 @@
                             <!--insert code to unhide html-->
                         } 
                     });',
-                    custom_options='clickable: true, addRemoveLinks: true,') }}
+                    custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400') }}
 
 </body>
 </html>
