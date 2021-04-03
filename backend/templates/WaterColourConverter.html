@@ -143,7 +143,12 @@
                     dz.on("maxfilesexceeded", function handler(file){
                         var oldFiles = dz.getAcceptedFiles();
                         dz.removeFile(oldFiles[0]);
-                    })',
+                    })
+
+                    dz.on("error", function(file){
+                        if (!file.accepted) this.removeFile(file);
+                        alert("Upload a photo or video");
+                    });',
                     custom_options='clickable: true, addRemoveLinks: true,') }}
 
 </body>
