@@ -103,6 +103,24 @@
         border-radius: 5px;
         cursor: pointer;
         }
+
+        /* Style the description area */
+        .description-area{
+        border: 2px solid #fff;
+        height: 100px;
+        width: 1000px;
+        border-radius: 5px;
+        display: flex;
+        /* align-items: center; */
+        /* justify-content: center; */
+        color: white;
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        flex-direction: column;
+        text-align: left;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
@@ -114,13 +132,20 @@
     </div>
     
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
-        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-        <header>Drag or Click to Upload File</header>
+        <div id="instrIcon" class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <header id="instrText">Drag or Click to Upload File</header>
+        <!--<span>OR</span>
+        <button onclick="openDialogue()">Browse File</button>-->
         <input id= "img" type="file" hidden>
     </div>
 
     <div class="convert-area">
         <button id="convert">Convert</button>
+    </div>
+
+    <div class="description-area">
+        <header><span>Team description, ML model description, and sample photos will be added here later.</span></header>
+        <span>To be updated...</span>
     </div>
 
   <!-- backend script can be added below! -->
@@ -132,13 +157,12 @@
                     <!-- Otherwise, prompts the user to upload a photo -->
                     document.getElementById("convert").addEventListener("click", function handler(e) {
                         var accepted = dz.getAcceptedFiles();
-
                         if (accepted.length > 0) {
                             location.href= "/results/";
                         } else {
                             alert("Upload a photo or video");
                         }
-                    });
+                    });  
 
                     <!-- If an image is uploaded when another one has already previously -->
                     <!-- been uploaded, the new photo replaces the old one -->
@@ -169,5 +193,21 @@
                     });',
                     custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400,') }}
 
+        <script>
+        //------This was from backup. Please delete it if you don't need this function!
+        // file.previewELement
+        // function openDialogue() {
+        //     document.getElementById('img').click();
+        // }
+        // const fileElement = document.getElementById("img");
+
+        //function to make elements inside dropzone invisible
+        function emptyDropzone() {
+            var removeIcon = document.getElementById("instrIcon");
+            removeIcon.style.display = "none";
+            var removeText = document.getElementById("instrText");
+            removeText.style.display = "none";
+        }
+        </script>
 </body>
 </html>
