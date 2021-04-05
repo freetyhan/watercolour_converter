@@ -139,6 +139,18 @@
         <input id= "img" type="file" hidden>
     </div>
 
+    <!-- HTML used for image preview -->
+    <div id="template-preview">
+        <div class="dz-preview dz-file-preview">
+            <div class="dz-details">
+            <img data-dz-thumbnail />
+            <div class="dz-filename"><span data-dz-name></span></div>
+            </div>
+            <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+            <div class="dz-error-message"><span data-dz-errormessage></span></div>
+        </div>
+    </div>
+
     <div class="convert-area">
         <button id="convert">Convert</button>
     </div>
@@ -147,6 +159,7 @@
         <header><span>Team description, ML model description, and sample photos will be added here later.</span></header>
         <span>To be updated...</span>
     </div>
+
     
 
   <!-- backend script can be added below! -->
@@ -198,9 +211,12 @@
                             removeText.style.display = "block";
                         } 
                     });',
-                    custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400,') }}
+                    custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400,
+                                    previewTemplate: document.getElementById("template-preview").innerHTML, ') }}
 
         <script>
+            
+                    
         </script>
 </body>
 </html>
