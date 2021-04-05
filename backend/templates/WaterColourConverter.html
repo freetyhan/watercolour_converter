@@ -85,7 +85,7 @@
         /* Style the convert area */
         .convert-area{
         height: 100px;
-        width: 700px;
+        width: 200px;
         border-radius: 5px;
         display: flex;
         align-items: center;
@@ -121,6 +121,8 @@
         flex-direction: column;
         text-align: left;
         }
+
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
@@ -134,8 +136,6 @@
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div id="instrIcon" class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
         <header id="instrText">Drag or Click to Upload File</header>
-        <!--<span>OR</span>
-        <button onclick="openDialogue()">Browse File</button>-->
         <input id= "img" type="file" hidden>
     </div>
 
@@ -147,6 +147,7 @@
         <header><span>Team description, ML model description, and sample photos will be added here later.</span></header>
         <span>To be updated...</span>
     </div>
+    
 
   <!-- backend script can be added below! -->
   {{ dropzone.load_js() }}
@@ -180,7 +181,10 @@
 
                     <!-- Hide clouds and text if an image has been added -->
                     dz.on("maxfilesreached", function(file) {
-                        <!--insert code to remove html-->
+                        var removeIcon = document.getElementById("instrIcon");
+                        removeIcon.style.display = "none";
+                        var removeText = document.getElementById("instrText");
+                        removeText.style.display = "none";
                     });
 
                     <!-- Unhide clouds and text if an image has been removed -->
@@ -188,26 +192,15 @@
                         var accepted = dz.getAcceptedFiles();
 
                         if (accepted.length == 0) {
-                            <!--insert code to unhide html-->
+                            var removeIcon = document.getElementById("instrIcon");
+                            removeIcon.style.display = "block";
+                            var removeText = document.getElementById("instrText");
+                            removeText.style.display = "block";
                         } 
                     });',
                     custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400,') }}
 
         <script>
-        //------This was from backup. Please delete it if you don't need this function!
-        // file.previewELement
-        // function openDialogue() {
-        //     document.getElementById('img').click();
-        // }
-        // const fileElement = document.getElementById("img");
-
-        //function to make elements inside dropzone invisible
-        function emptyDropzone() {
-            var removeIcon = document.getElementById("instrIcon");
-            removeIcon.style.display = "none";
-            var removeText = document.getElementById("instrText");
-            removeText.style.display = "none";
-        }
         </script>
 </body>
 </html>
