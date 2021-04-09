@@ -107,7 +107,7 @@
         /* Style the description area */
         .description-area{
         border: 2px solid #fff;
-        height: 100px;
+        /* height: 500px; */
         width: 1000px;
         border-radius: 5px;
         display: flex;
@@ -120,6 +120,25 @@
         padding-bottom: 30px;
         flex-direction: column;
         text-align: left;
+        font-size:large;
+        overflow-wrap: break-word;
+        }
+        .gap{
+            width:100%;
+            height: 20px;
+        }
+        .howtouse{
+        display: flex;
+        color: rgb(26, 36, 97);
+        flex-direction: column;
+        text-align: left;
+        font-size:x-large;
+        overflow-wrap: break-word;
+        }
+
+        .photo{
+            height: 500px;
+            width: 700px;
         }
 
         
@@ -155,9 +174,32 @@
         <button id="convert">Convert</button>
     </div>
 
-    <div class="description-area">
-        <header><span>Team description, ML model description, and sample photos will be added here later.</span></header>
-        <span>To be updated...</span>
+    <div class="description-area" contenteditable="true">
+        <div class="gap"></div>
+        <div class="howtouse">
+            <span>How to use Watercolour Painting Converter:</span>
+            <span>1. Upload input file.</span>
+            <span>2. Click 'convert' button.</span>
+            <span>3. Click 'download' button to download the resulting image or video.</span>
+        </div>
+        <div class="gap"></div>
+        <span>Sample image</span>
+        <!-- add sample image here!!!! -->
+        <!-- <div class="photo">
+            <img src="sample.jpg">
+        </div>
+        <img src="arrow.png">
+        <div class="photo">
+            <img src="sample.jpg">
+        </div> -->
+
+        <span>Watercolour Painting Converter converts user input image or video stylized as a watercolor painting.</span>
+        <!-- ML part description here if you want!!!! -->
+        <div class="gap"></div>
+        <span>This project was done as part of 2020W CPEN291 final project.</span>
+        <span>Machine Learning model developer: Harijot Grewal, Adrienne Chu</span>
+        <span>Backend developer: Adriana Castro</span>
+        <span>Frontend developer: Han Cho</span>
     </div>
 
     
