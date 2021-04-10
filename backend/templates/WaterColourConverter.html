@@ -158,8 +158,8 @@
     <div class="preview" id="template-preview">
         <div class="dz-preview dz-file-preview">
             <div class="dz-details">
-                <img data-dz-thumbnail />
-                <div class="dz-filename"><span data-dz-name></span></div>
+            <img data-dz-thumbnail />
+            <div class="dz-filename"><span data-dz-name></span></div>
             </div>
             <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
             <div class="dz-error-message"><span data-dz-errormessage></span></div>
@@ -183,14 +183,14 @@
         <!-- add sample image here!!!! -->
         <!-- real sample will be added later this is just for placeholder for now -->
         <div class="photo">
-            <img src="sample.jpg" style="height:100%;max-height:400px">
+            <img src="images/lab1_q6.png" style="height:100%;max-height:400px">
         </div>
-        <img src="arrow.png" style="height:100%;max-height:100px">
+        <img src="images/arrow.png" style="height:100%;max-height:100px">
         <div class="photo">
-            <img src="C:\Users\freet\Desktop\cpen291\project-team-albertaceratops\backend\templates\sample.jpg" style="height:100%;max-height:400px">
+            <img src="images/lab1_q6.png" style="height:100%;max-height:400px">
         </div>
 
-        <span>Watercolour Painting Converter converts user input image or video stylized as a watercolor painting.</span>
+        <span>Watercolour Painting Converter converts user input image or video stylized as a watercolour painting.</span>
         <!-- ML part description here if you want!!!! -->
         <div class="gap"></div>
         <span>This project was done as part of 2020W CPEN291 final project.</span>
@@ -228,7 +228,7 @@
                     <!-- a picture -->
                     dz.on("error", function(file) {
                         if (!file.accepted) this.removeFile(file);
-                        alert("Upload a photo or video");
+                        alert("ERROR Please Try Other File");
                     });
 
                     <!-- Hide clouds and text if an image has been added -->
@@ -243,22 +243,19 @@
                     dz.on("removedfile", function(file){
                         var accepted = dz.getAcceptedFiles();
 
-
                         if (accepted.length == 0) {
                             var removeIcon = document.getElementById("instrIcon");
                             removeIcon.style.display = "block";
                             var removeText = document.getElementById("instrText");
                             removeText.style.display = "block";
-                        }
-
+                        } 
                     });',
-                    custom_options='clickable: true, addRemoveLinks: true, 
-                                addRemoveLinks: true, thumbnailHeight: 400, thumbnailWidth: 400,
-                                previewTemplate: document.getElementById("template-preview").innerHTML, ') }}
+                    custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400,
+                                    previewTemplate: document.getElementById("template-preview").innerHTML, ') }}
 
-    <script 
-        type=text/javascript src="{{url_for('static', filename='jquery.js') }}">
-    </script>
-    
+        <script>
+            
+                    
+        </script>
 </body>
 </html>
