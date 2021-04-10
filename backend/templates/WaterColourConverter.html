@@ -69,6 +69,7 @@
         .dropzone img{
         object-fit: cover;
         border-radius: 5px;
+        
         }
 
         /* Style the convert area */
@@ -145,7 +146,7 @@
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div id="instrIcon" class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
         <header id="instrText"> Drag or Click to Upload File </header>
-        <input id= "img" type="file" hidden>
+        <!-- <input id= "img" type="file" hidden> -->
     </div>
 
     <!-- HTML used for image preview -->
@@ -221,7 +222,7 @@
                     <!-- a picture -->
                     dz.on("error", function(file) {
                         if (!file.accepted) this.removeFile(file);
-                        alert("Upload a photo or video");
+                        alert("An error has occured");
                     });
 
                     <!-- Hide clouds and text if an image has been added -->
@@ -249,9 +250,6 @@
                                 addRemoveLinks: true, thumbnailHeight: 400, thumbnailWidth: 400,
                                 previewTemplate: document.getElementById("template-preview").innerHTML, ') }}
 
-    <script 
-        type=text/javascript src="{{url_for('static', filename='jquery.js') }}">
-    </script>
     
 </body>
 </html>
