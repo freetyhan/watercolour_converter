@@ -143,8 +143,8 @@
     <div id="template-preview">
         <div class="dz-preview dz-file-preview">
             <div class="dz-details">
-            <img data-dz-thumbnail />
-            <div class="dz-filename"><span data-dz-name></span></div>
+                <img data-dz-thumbnail />
+                <div class="dz-filename"><span data-dz-name></span></div>
             </div>
             <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
             <div class="dz-error-message"><span data-dz-errormessage></span></div>
@@ -204,19 +204,22 @@
                     dz.on("removedfile", function(file){
                         var accepted = dz.getAcceptedFiles();
 
+
                         if (accepted.length == 0) {
                             var removeIcon = document.getElementById("instrIcon");
                             removeIcon.style.display = "block";
                             var removeText = document.getElementById("instrText");
                             removeText.style.display = "block";
-                        } 
-                    });',
-                    custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400,
-                                    previewTemplate: document.getElementById("template-preview").innerHTML, ') }}
+                        }
 
-        <script>
-            
-                    
-        </script>
+                    });',
+                    custom_options='clickable: true, addRemoveLinks: true, 
+                                addRemoveLinks: true, thumbnailHeight: 400, thumbnailWidth: 400,
+                                previewTemplate: document.getElementById("template-preview").innerHTML, ') }}
+
+    <script 
+        type=text/javascript src="{{url_for('static', filename='jquery.js') }}">
+    </script>
+    
 </body>
 </html>
