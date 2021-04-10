@@ -124,8 +124,8 @@
         overflow-wrap: break-word;
         }
         .gap{
-            width:100%;
-            height: 20px;
+        width:100%;
+        height: 20px;
         }
         .howtouse{
         display: flex;
@@ -137,8 +137,9 @@
         }
 
         .photo{
-            height: 500px;
-            width: 700px;
+        height: 450px;
+        width: 700px;
+        align-items: center;
         }
 
         
@@ -154,7 +155,7 @@
     
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div id="instrIcon" class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-        <header id="instrText">Drag or Click to Upload File</header>
+        <header id="instrText"> Drag or Click to Upload File </header>
         <input id= "img" type="file" hidden>
     </div>
 
@@ -185,13 +186,13 @@
         <div class="gap"></div>
         <span>Sample image</span>
         <!-- add sample image here!!!! -->
-        <!-- <div class="photo">
-            <img src="sample.jpg">
-        </div>
-        <img src="arrow.png">
         <div class="photo">
-            <img src="sample.jpg">
-        </div> -->
+            <img src="sample.jpg" style="width:100%;max-width:400px">
+        </div>
+        <img src="arrow.png" style="width:100%;max-width:100px">
+        <div class="photo">
+            <img src="sample.jpg" style="width:100%;max-width:400px">
+        </div>
 
         <span>Watercolour Painting Converter converts user input image or video stylized as a watercolor painting.</span>
         <!-- ML part description here if you want!!!! -->
