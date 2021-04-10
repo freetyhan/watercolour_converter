@@ -184,9 +184,9 @@
         <!-- add sample image here!!!! -->
         <!-- real sample will be added later this is just for placeholder for now -->
         <div class="photo">
-            <img src="images/lab1_q6.png" style="height:100%;max-height:400px">
+            <img src="{{ url_for('displayImage', filename='lab1_q6.png') }} " style="height:100%;max-height:400px">
         </div>
-        <img src="images/arrow.png" style="height:100%;max-height:100px">
+        <img src="{{ url_for('displayImage', filename='arrow.png') }}" style="height:100%;max-height:100px">
         <div class="photo">
             <img src="images/lab1_q6.png" style="height:100%;max-height:400px">
         </div>
@@ -254,13 +254,6 @@
                     custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400,
                                     previewTemplate: document.getElementById("template-preview").innerHTML, ') }}
 
-<<<<<<< HEAD
     
-=======
-        <script>
-            
-                    
-        </script>
->>>>>>> 844694ac516a28b3e7d7e333d1e74ab8bdb51d9c
 </body>
 </html>
