@@ -96,8 +96,11 @@
   </div>
 
   <div class="download-area">
-    <td><a href="{{ url_for('download', filename='apple.png') }}" download>Download</a></td>
+    <a href="{{ url_for('download', filename='apple.png') }}" download>
+      <button id="download">Download</button>
+    </a>
   </div>
   
+
 </body>
 </html>
