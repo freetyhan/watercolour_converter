@@ -124,7 +124,7 @@
         height: 20px;
         }
         .howtouse{
-        display: flex;
+        /* display: flex; */
         color: rgb(26, 36, 97);
         flex-direction: column;
         text-align: left;
@@ -133,9 +133,15 @@
         }
 
         .photo{
-        height: 450px;
+        max-height: 250px;
         width: 700px;
-        align-items: center;
+        text-align: center;
+        }
+        .arrow{
+        display: block;
+        height: 50px;
+        width: 700px;
+        text-align: center;
         }
 
         
@@ -172,24 +178,29 @@
         <button id="convert">Convert</button>
     </div>
 
-    <div class="description-area" contenteditable="true">
+    <!-- made content not editable -->
+    <div class="description-area" contenteditable="false">
         <div class="gap"></div>
         <div class="howtouse">
-            <span>How to use Watercolour Painting Converter:</span>
-            <span>1. Upload input file.</span>
-            <span>2. Click 'convert' button.</span>
-            <span>3. Click 'download' button to download the resulting image or video.</span>
+            <p>How to use Watercolour Painting Converter:
+            <br>1. Upload input file.
+            <br>2. Click 'convert' button.
+            <br>3. Click 'download' button to download the resulting image or video.
+            </p>
         </div>
         <div class="gap"></div>
-        <span>Sample image</span>
+        <div class="howtouse"><span>Sample image</span></div>
+        <div class="gap"></div>
         <!-- add sample image here!!!! -->
         <!-- real sample will be added later this is just for placeholder for now -->
         <div class="photo">
-            <img src="{{ url_for('displayImage', filename='') }} " style="height:100%;max-height:400px">
+            <img src="{{ url_for('displayImage', filename='lab1_q6.png') }} " style="width:80%">
         </div>
-        <img src="{{ url_for('displayImage', filename='') }}" style="height:100%;max-height:100px">
+        <div class="arrow">
+            <img src="{{ url_for('displayImage', filename='arrow.png') }}" style="max-width:50px;max-height:50px">
+        </div>
         <div class="photo">
-            <img src="images/lab1_q6.png" style="height:100%;max-height:400px">
+            <img src="{{ url_for('displayImage', filename='lab1_q6.png') }} " style="width:80%">
         </div>
 
         <span>Watercolour Painting Converter converts user input image or video stylized as a watercolour painting.</span>
