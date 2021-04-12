@@ -20,25 +20,36 @@ app.config.update(
 
 dropzone = Dropzone(app)
 
+# -------------------------------------------- Viewable Pages -------------------------------------------- #
 
+# Home page
 @app.route('/',methods=['POST','GET']) 
 def upload():
     if request.method == 'POST':
         f = request.files.get('file')
-        f.save(os.path.join(app.config['UPLOADED_PATH'],f.filename))
+        f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
     return render_template('WaterColourConverter.html')
-        
+
+# Result page  
 @app.route('/results/')
 def resultPage():
      return render_template('index.html')
 
+
+# -------------------------------------------- Pages for image management -------------------------------------------- #
+
+# hopefully will delete images server side
+
+
+# Used to return final result image
 @app.route('/results/<filename>', methods=['GET', 'POST'])
 def download(filename):
     return send_from_directory(directory=app.config['RESULT_PATH'], filename=filename)
 
+# Used to return images for webpage
 @app.route('/uploads/<filename>', methods=['GET', 'POST'])
 def displayImage(filename):
     return send_from_directory(directory=app.config['IMAGES_PATH'], filename=filename)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
