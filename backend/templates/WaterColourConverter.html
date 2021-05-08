@@ -165,8 +165,9 @@
     <div class="preview" id="template-preview">
         <div class="dz-preview dz-file-preview">
             <div class="dz-details">
-            <img data-dz-thumbnail />
-            <div class="dz-filename"><span data-dz-name></span></div>
+                <img data-dz-thumbnail />
+                <div class="dz-filename"><span data-dz-name></span></div>
+                
             </div>
             <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
             <div class="dz-error-message"><span data-dz-errormessage></span></div>
@@ -210,7 +211,7 @@
         <span>Frontend developer: Han Cho</span>
     </div>
 
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
   <!-- backend script can be added below! -->
   {{ dropzone.load_js() }}
@@ -260,6 +261,7 @@
                             var removeText = document.getElementById("instrText");
                             removeText.style.display = "block";
                         } 
+                        
                     });',
                     custom_options='clickable: true, addRemoveLinks: true, thumbnailHeight: 350, thumbnailWidth: 400,
                                     previewTemplate: document.getElementById("template-preview").innerHTML, ') }}
