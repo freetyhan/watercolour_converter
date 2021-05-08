@@ -69,7 +69,6 @@
         .dropzone img{
         object-fit: cover;
         border-radius: 5px;
-        
         }
 
         /* preview image area */
@@ -132,17 +131,24 @@
         overflow-wrap: break-word;
         }
 
-        .photo{
-        max-height: 250px;
-        width: 700px;
-        text-align: center;
+        /* image area inside description area */
+        .image-area{
+        vertical-align: middle;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         }
-        .arrow{
-        display: block;
-        height: 50px;
-        width: 700px;
-        text-align: center;
+        .description-area img{
+            width: 250px;
+            height: 250px;
+            background-size: cover;
+            vertical-align: middle;
         }
+        /* .description-area arrow{
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+        } */
 
         
     </style>
@@ -192,16 +198,13 @@
         <div class="howtouse"><span>Sample image</span></div>
         <div class="gap"></div>
         <!-- sample images added -->
-        <div class="photo">
+        <div class="image-area">
             <img src="{{ url_for('displayImage', filename='flowers.png') }} " style="max-height:250px">
-        </div>
-        <div class="arrow">
-            <img src="{{ url_for('displayImage', filename='arrow.png') }}" style="max-width:50px;max-height:50px">
-        </div>
-        <div class="photo">
+            <img src="{{ url_for('displayImage', filename='right_arrow.png') }}" style="max-width:50px; max-height:50px; position:relative; align-items:center">
             <img src="{{ url_for('displayImage', filename='flowers_converted.png') }} " style="max-height:250px">
         </div>
 
+        <div class="gap"></div>
         <span>Watercolour Painting Converter converts user input image or video stylized as a watercolour painting.</span>
         <!-- ML part description here if you want!!!! -->
         <div class="gap"></div>
