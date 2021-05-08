@@ -49,12 +49,19 @@ def download(filename):
 def displayImage(filename):
     return send_from_directory(directory=app.config['IMAGES_PATH'], filename=filename)
         
-# Delete File maybe?
-@app.route('/deletefile', methods=['GET', 'POST'])
+# Delete all uploaded and result files and reroutes to main page
+@app.route('/deleteUploads', methods=['GET', 'POST'])
 def deletefile():
+
     for filename in os.listdir(app.config['UPLOADED_PATH']):
         file_path = os.path.join(app.config['UPLOADED_PATH'], filename)
         os.remove(file_path)
+
+    # *delete results - uncomment when website is integrated with model
+    # for filename in os.listdir(app.config['RESULT_PATH']):
+    #     file_path = os.path.join(app.config['RESULT_PATH'], filename)
+    #     os.remove(file_path)
+
     return render_template('WaterColourConverter.html')
 
 if __name__ == "__main__":
