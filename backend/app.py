@@ -1,7 +1,7 @@
 import os
 import logging
 from flask import send_from_directory
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_dropzone import Dropzone
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
@@ -62,7 +62,7 @@ def deletefile():
     #     file_path = os.path.join(app.config['RESULT_PATH'], filename)
     #     os.remove(file_path)
 
-    return render_template('WaterColourConverter.html')
+    return redirect("/")
 
 if __name__ == "__main__":
     app.run(debug=True)
