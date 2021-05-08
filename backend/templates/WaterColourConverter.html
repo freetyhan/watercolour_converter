@@ -166,7 +166,7 @@
     <div class="title">
         <header><span>Watercolour Painting Converter</span></header>
     </div>
-    
+        
     <div class="dropzone"{{ dropzone.  create(action='upload') }}>
         <div id="instrIcon" class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
         <header id="instrText"> Drag or Click to Upload File </header>
@@ -212,6 +212,7 @@
 
         <div class="gap"></div>
         <span>Watercolour Painting Converter converts user input image or video stylized as a watercolour painting.</span>
+       
         <!-- ML part description here if you want!!!! -->
         <div class="gap"></div>
         <span>This project was done as part of 2020W CPEN291 final project.</span>
@@ -221,12 +222,15 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
 
   <!-- backend script can be added below! -->
   {{ dropzone.load_js() }}
   {{ dropzone.config(custom_init='
                     dz = this; 
+
                     
+
                     <!-- Convert button only redirects when an image has been uploaded -->
                     <!-- Otherwise, prompts the user to upload a photo -->
                     document.getElementById("convert").addEventListener("click", function handler(e) {
@@ -237,6 +241,11 @@
                             alert("Upload a photo or video");
                         }
                     });  
+
+                    <!-- Pass filename -->
+                    dz.on("success", function(file, response) {
+                        file.serverFileName = response.file_name;  
+                    });
 
                     <!-- If an image is uploaded when another one has already previously -->
                     <!-- been uploaded, the new photo replaces the old one -->
@@ -263,6 +272,20 @@
                     <!-- Unhide clouds and text if an image has been removed -->
                     dz.on("removedfile", function(file){
                         var accepted = dz.getAcceptedFiles();
+                        var filename = file.name.toString();
+                        console.log(file.name);
+                        <!-- console.log(type(filename)); -->
+
+                        $.ajax({  
+                            type:"POST",
+                            url:"/deleteUploads",
+                            success : function(response) {
+                                console.log(response);
+                            },
+                            error: function(error) {
+                                console.log(error);
+                            }
+                        });
 
                         if (accepted.length == 0) {
                             var removeIcon = document.getElementById("instrIcon");

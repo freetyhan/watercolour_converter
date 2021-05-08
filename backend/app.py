@@ -1,7 +1,9 @@
 import os
+import logging
 from flask import send_from_directory
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_dropzone import Dropzone
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 
@@ -26,6 +28,7 @@ dropzone = Dropzone(app)
 @app.route('/',methods=['POST','GET']) 
 def upload():
     if request.method == 'POST':
+        deletefile()
         f = request.files.get('file')
         f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
     return render_template('WaterColourConverter.html')
@@ -36,10 +39,7 @@ def resultPage():
      return render_template('index.html')
 
 
-# -------------------------------------------- Pages for image management -------------------------------------------- #
-
-# hopefully will delete images server side
-
+# -------------------------------------------- Pages for image management ------------------------------ #
 
 # Used to return final result image
 @app.route('/results/<filename>', methods=['GET', 'POST'])
@@ -50,6 +50,21 @@ def download(filename):
 @app.route('/uploads/<filename>', methods=['GET', 'POST'])
 def displayImage(filename):
     return send_from_directory(directory=app.config['IMAGES_PATH'], filename=filename)
+        
+# Delete all uploaded and result files and reroutes to main page
+@app.route('/deleteUploads', methods=['GET', 'POST'])
+def deletefile():
+
+    for filename in os.listdir(app.config['UPLOADED_PATH']):
+        file_path = os.path.join(app.config['UPLOADED_PATH'], filename)
+        os.remove(file_path)
+
+    # *delete results - uncomment when website is integrated with model
+    # for filename in os.listdir(app.config['RESULT_PATH']):
+    #     file_path = os.path.join(app.config['RESULT_PATH'], filename)
+    #     os.remove(file_path)
+
+    return redirect("/")
 
 if __name__ == "__main__":
     app.run(debug=True)
