@@ -1,0 +1,1 @@
+- Good progress, don't forget that you still have free gcp credits (many GPU hours) to use
