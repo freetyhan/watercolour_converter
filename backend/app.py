@@ -3,6 +3,7 @@ import logging
 from flask import send_from_directory
 from flask import Flask, render_template, request, redirect
 from flask_dropzone import Dropzone
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 
@@ -27,6 +28,7 @@ dropzone = Dropzone(app)
 @app.route('/',methods=['POST','GET']) 
 def upload():
     if request.method == 'POST':
+        deletefile()
         f = request.files.get('file')
         f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
     return render_template('WaterColourConverter.html')
@@ -37,7 +39,7 @@ def resultPage():
      return render_template('index.html')
 
 
-# -------------------------------------------- Pages for image management -------------------------------------------- #
+# -------------------------------------------- Pages for image management ------------------------------ #
 
 # Used to return final result image
 @app.route('/results/<filename>', methods=['GET', 'POST'])
