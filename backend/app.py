@@ -1,4 +1,5 @@
 import os
+import logging
 from flask import send_from_directory
 from flask import Flask, render_template, request
 from flask_dropzone import Dropzone
@@ -38,9 +39,6 @@ def resultPage():
 
 # -------------------------------------------- Pages for image management -------------------------------------------- #
 
-# hopefully will delete images server side
-
-
 # Used to return final result image
 @app.route('/results/<filename>', methods=['GET', 'POST'])
 def download(filename):
@@ -50,6 +48,14 @@ def download(filename):
 @app.route('/uploads/<filename>', methods=['GET', 'POST'])
 def displayImage(filename):
     return send_from_directory(directory=app.config['IMAGES_PATH'], filename=filename)
+        
+# Delete File maybe?
+@app.route('/deletefile', methods=['GET', 'POST'])
+def deletefile():
+    for filename in os.listdir(app.config['UPLOADED_PATH']):
+        file_path = os.path.join(app.config['UPLOADED_PATH'], filename)
+        os.remove(file_path)
+    return render_template('WaterColourConverter.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
