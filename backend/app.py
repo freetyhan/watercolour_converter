@@ -1,11 +1,14 @@
 import os
 import logging
+import pickle
 from flask import send_from_directory
 from flask import Flask, render_template, request, redirect
 from flask_dropzone import Dropzone
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
+
+# model = pickle.load(open('model.pkl', 'rb'))
 
 app.config.update(
     UPLOADED_PATH= os.path.join(basedir,'uploads'),
