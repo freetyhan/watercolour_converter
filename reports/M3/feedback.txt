@@ -1,1 +1,2 @@
-- Good progress, don't forget that you still have free gcp credits (many GPU hours) to use
+README vs Video instruction: I think both can help, and if you don't mind, you can consider do both, but with different focuses. For example, the video version provides a minimal example of how to use it, and the README version documents more details.
+Working with videos (beyond images): You could consider using a sequence model (e.g. LSTM) to help you produce more coherent and smooth resutls.
