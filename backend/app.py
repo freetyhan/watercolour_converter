@@ -130,7 +130,7 @@ def resultPage():
 # Used to return final result image
 @app.route('/resultImage/', methods=['GET', 'POST'])
 def download():
-    return send_from_directory(app.config['RESULT_PATH'], os.listdir(app.config['RESULT_PATH'])[0])
+    return send_from_directory(app.config['RESULT_PATH'], filename=os.listdir(app.config['RESULT_PATH'])[0])
 
 # Used to return images for webpage so frontend can display any image stored on the server
 @app.route('/uploads/<filename>', methods=['GET', 'POST'])
