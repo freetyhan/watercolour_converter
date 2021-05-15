@@ -13,5 +13,5 @@
     - pip install Flask
     - pip install flask-dropzone
     - python app.py
-4. Once you run the last command a link will likely show up (it does at least in VS code and cmd). Follow it and the website should show up
+4. Once you run the last command a link will likely show up (it does at least in VS code and cmd). Follow it and the website should show up.
 If you have any questions contact me at adriana.e.castro@outlook.com
