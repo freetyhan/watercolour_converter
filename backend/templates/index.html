@@ -102,11 +102,11 @@
   <span>Converted!</span>
 
   <div class="resultzone">
-    <input id= "img" type="file" hidden>
+    <img src="/resultImage/" style="max-height:1000px"> 
   </div>
 
   <div class="download-area">
-    <a href="{{ url_for('download', filename='apple.png') }}" download>
+    <a href="/resultImage/" download>
       <button id="download">Download</button>
     </a>
     <homeButton id="home" onclick="location.href='/deleteUploads'">Home</homeButton>
