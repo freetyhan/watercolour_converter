@@ -18,7 +18,7 @@
 4. Once you run the last command a link will likely show up (it does at least in VS code and cmd). Follow it and the website should show up.
 If you have any questions contact me at adriana.e.castro@outlook.com
 
-NOTE: If the images are not loading on the webpage, change line 133 and 138 in /backend/app.py from 
+**NOTE:** If the images are not loading on the webpage, change line 133 and 138 in /backend/app.py from 
 
     133: return send_from_directory(app.config['RESULT_PATH'], filename=os.listdir(app.config['RESULT_PATH'])[0])
 
