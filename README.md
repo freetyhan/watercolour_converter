@@ -12,6 +12,7 @@
     - py -3 -m venv venv
     - pip install Flask
     - pip install flask-dropzone
+    - pip3 install torch==1.8.1+cpu torchvision==0.9.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
     - python app.py
 4. Once you run the last command a link will likely show up (it does at least in VS code and cmd). Follow it and the website should show up.
 If you have any questions contact me at adriana.e.castro@outlook.com
