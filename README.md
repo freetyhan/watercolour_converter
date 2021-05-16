@@ -1,7 +1,7 @@
 # Watercolour Converter Website
 ## How to run the website locally
 1. If you do not have it already, download [pip](https://pip.pypa.io/en/stable/installing/) and 64-bit [python](https://www.python.org/downloads/release/python-395/)
-2. Use your favourite terminal to navigate into this project’s backend and make sure that the following folders and files exist (other folders may exist but they are not as important)
+2. Check this project’s backend and make sure that the following folders and files exist (other folders may exist but they are not as important)
     - uploads
     - results
     - images
@@ -9,6 +9,7 @@
     - app.py
     - model.pkl
 3. Run the following commands in order
+    - cd backend
     - py -3 -m venv venv
     - pip install Flask
     - pip install flask-dropzone
