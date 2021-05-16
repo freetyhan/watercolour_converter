@@ -1,7 +1,7 @@
 # Watercolour Converter Website
 ## How to run the website locally
 1. If you do not have it already, download [pip](https://pip.pypa.io/en/stable/installing/) and 64-bit [python](https://www.python.org/downloads/release/python-395/)
-2. Check this project’s backend and make sure that the following folders and files exist (other folders may exist but they are not as important)
+2. Check this project’s backend directory and make sure that the following folders and files exist (other folders may exist but they are not as important)
     - uploads
     - results
     - images
