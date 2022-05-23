@@ -29,7 +29,7 @@ to
 
     138: return send_from_directory(directory=app.config['IMAGES_PATH'], path=filename)
 
-This project was done as part of 2020W CPEN291 final project.\n
-Machine Learning model developer: Harjot Grewal, Adrienne Chu\n
-Backend developer: Adriana Castro\n
-Frontend developer: Han Cho\n
+This project was done as part of 2020W CPEN291 final project.
+- Machine Learning model developer: Harjot Grewal, Adrienne Chu<br />
+- Backend developer: Adriana Castro<br />
+- Frontend developer: Han Cho<br />
