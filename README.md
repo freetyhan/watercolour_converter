@@ -29,4 +29,7 @@ to
 
     138: return send_from_directory(directory=app.config['IMAGES_PATH'], path=filename)
 
-If you have any questions contact me at adriana.e.castro@outlook.com
+This project was done as part of 2020W CPEN291 final project.
+Machine Learning model developer: Harjot Grewal, Adrienne Chu
+Backend developer: Adriana Castro
+Frontend developer: Han Cho
